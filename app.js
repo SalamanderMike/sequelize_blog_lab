@@ -16,7 +16,7 @@ app.get('/', function (req, res){
 })
 
 app.get('/titles', function (req, res){
-	db.post.findAll().success(function (posts){
+	db.post.findAll({order: [['createdAt', 'DESC']]}).success(function (posts){
 		res.render('titles', {list: posts});
 	});
 });
