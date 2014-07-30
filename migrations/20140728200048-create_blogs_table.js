@@ -5,20 +5,21 @@
 
 module.exports = {
   up: function(migration, DataTypes, done) {
-  	migration.createTable('blogs', 
+  	migration.createTable('posts', 
 	  	{id: {
 	  		type: DataTypes.INTEGER,
 	  		primaryKey: true,
 	  		autoIncrement: true
 	  	},
-	  	post: DataTypes.STRING,
-	  	createdAt: DataTypes.DATE,
-    	updatedAt: DataTypes.DATE
+      title: DataTypes.STRING(50),
+	  	body: DataTypes.TEXT,
+	  	createdAt: DataTypes.DATE, // required
+    	updatedAt: DataTypes.DATE // required
   	})
   	.complete(done)
   },
   down: function(migration, DataTypes, done) {
-  	migration.dropTable('blogs').complete(done)
+  	migration.dropTable('posts').complete(done)
   }
 }
 

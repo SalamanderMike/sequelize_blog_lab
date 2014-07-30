@@ -2,14 +2,12 @@ var fs        = require('fs')
   , path      = require('path')
   , Sequelize = require('sequelize')
   , lodash    = require('lodash')
-  , Author    = require('Author') // Connect Author and Blog
-  , Blog      = require('Blog')   // into document?
   , env       = process.env.NODE_ENV || 'development'
   , config    = require(__dirname + '/../config/config.json')[env]
   , sequelize = new Sequelize(config.database, config.username, config.password, config)
   , db        = {}
 
-fs
+fs // Finds models to import?
   .readdirSync(__dirname)
   .filter(function(file) {
     return (file.indexOf('.') !== 0) && (file !== 'index.js')
@@ -25,25 +23,46 @@ Object.keys(db).forEach(function(modelName) {
   }
 })
 
-// Instanciate Constructors?
-var person = new Author(sequelize, DataTypes);
-var post = new Blog(sequelize, DataTypes);
-
-
 // Associations
-db.person.hasMany(db.post);
-db.post.belongsTo(db.person);
+// db.author.hasMany(db.post); // written in author.js as classMethods
+// db.post.belongsTo(db.author); // written into post.js as classMethods
 
-// add blog to author
-db.post.create({post: "Across The Universe - Blahblahblah"})
-  .success(function (post){
-    db.person.find(1).success(function (person){
-      person.setposts([post])
-        .success(function (person){
-         console.log(person)
-      })
-    });
-});
+// db.author.find(1).success(function(foundAuthor){
+//   var newPost = db.post.build({title: 'Hello Words Again!'});
+
+//   foundAuthor.addPost(newPost).success(function(){
+//       newPost.save().then(function(post){
+//         console.log(post);
+//     });
+//   });
+// });
+
+
+// db.author.findOrCreate({firstname: 'Peter'}, {lastname: 'Roessler'})
+//   .success(function (newAuthor){
+//   var newPost = db.post.build({title: blog.title, body: blog.body});
+//   newAuthor.addPost(newPost).success(function(){
+//       newPost.save().then(function(post){
+//         console.log(post);
+//     });
+//   });
+// });
+
+
+// // Associations
+// db.author.hasMany(db.blog);
+// db.blog.belongsTo(db.author);
+
+// // add blog to author
+// db.blog.create({title: "Across The Universe", body: "BlahbDelahblah"})
+//   .success(function (blog){
+//     db.author.find(1).success(function (author){
+//       author.setblogs([blog])
+//         .success(function (author){
+//          console.log(author)
+//       })
+//     });
+// });
 
 // db.person.find(1).success (function (person){
 //   var blog = db.post.build({post: "Across The Universe - Blahblahblah"});

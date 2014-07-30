@@ -1,0 +1,7 @@
+db.author.build({firstname: "Mike", lastname: "McClure"}).save()
+db.author.find(1).success(function(author){var newPost = db.post.build({title: "Across The Universe"});
+author.setPosts([newPost]).success(function(){newPost.save();}
+  )
+}
+)
+

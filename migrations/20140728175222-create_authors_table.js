@@ -8,10 +8,11 @@ module.exports = {
   	migration.createTable('authors', 
 	  	{id: {
 	  		type: DataTypes.INTEGER,
-	  		primaryKey: true,
-	  		autoIncrement: true
+	  		primaryKey: true,        // constraint
+	  		autoIncrement: true      // constraint
 	  	},
-	  	name: DataTypes.STRING,
+	  	firstname: DataTypes.STRING(10),
+      lastname: DataTypes.STRING(10),
 	  	createdAt: DataTypes.DATE,
     	updatedAt: DataTypes.DATE
   	})

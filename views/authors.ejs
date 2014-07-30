@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Authors List</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+	<div>
+	  <form method="link" action="/new">
+			<input type="submit" value="NEW BLOG">
+	  </form>
+	  <form method="link" action="/titles">
+			<input type="submit" value="FIND TITLES">
+	  </form>
+	  <form method="link" action="/authors">
+			<input type="submit" value="FIND AUTHORS">
+	  </form>
+	</div>
+	
+	<h1>Here there be Authors!</h1>
+	<ul>
+		<% list.forEach(function(name){ %>
+		<li><%= name.dataValues.firstname +" "+ name.dataValues.lastname %></li>
+		<% }) %>
+	</ul>
+
+</body>
+</html>
