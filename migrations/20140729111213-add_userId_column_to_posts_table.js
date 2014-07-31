@@ -4,7 +4,7 @@ module.exports = {
   up: function(migration, DataTypes, done) {
   	migration.addColumn(
   		'posts', 
-  		'authorId', 
+  		'userId', 
   		{
   			type: DataTypes.INTEGER,
   			foreignKey: true // constraint
@@ -12,6 +12,6 @@ module.exports = {
   	).complete(done);
   },
   down: function(migration, DataTypes, done) {
-  	migration.removeColumn('posts','authorId').complete(done);
+  	migration.removeColumn('posts','userId').complete(done);
   }
 }

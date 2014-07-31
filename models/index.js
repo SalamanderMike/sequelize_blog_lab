@@ -24,24 +24,24 @@ Object.keys(db).forEach(function(modelName) {
 })
 
 // Associations
-// db.author.hasMany(db.post); // written in author.js as classMethods
-// db.post.belongsTo(db.author); // written into post.js as classMethods
+// db.user.hasMany(db.post); // written in user.js as classMethods
+// db.post.belongsTo(db.user); // written into post.js as classMethods
 
-// db.author.find(1).success(function(foundAuthor){
+// db.user.find(1).success(function(foundUser){
 //   var newPost = db.post.build({title: 'Hello Words Again!'});
 
-//   foundAuthor.addPost(newPost).success(function(){
+//   foundUser.addPost(newPost).success(function(){
 //       newPost.save().then(function(post){
 //         console.log(post);
 //     });
 //   });
-// });
+// }); 
 
 
-// db.author.findOrCreate({firstname: 'Peter'}, {lastname: 'Roessler'})
-//   .success(function (newAuthor){
+// db.user.findOrCreate({firstname: 'Peter'}, {lastname: 'Roessler'})
+//   .success(function (newUser){
 //   var newPost = db.post.build({title: blog.title, body: blog.body});
-//   newAuthor.addPost(newPost).success(function(){
+//   newUser.addPost(newPost).success(function(){
 //       newPost.save().then(function(post){
 //         console.log(post);
 //     });
@@ -50,16 +50,16 @@ Object.keys(db).forEach(function(modelName) {
 
 
 // // Associations
-// db.author.hasMany(db.blog);
-// db.blog.belongsTo(db.author);
+// db.user.hasMany(db.blog);
+// db.blog.belongsTo(db.user);
 
-// // add blog to author
+// // add blog to user
 // db.blog.create({title: "Across The Universe", body: "BlahbDelahblah"})
 //   .success(function (blog){
-//     db.author.find(1).success(function (author){
-//       author.setblogs([blog])
-//         .success(function (author){
-//          console.log(author)
+//     db.user.find(1).success(function (user){
+//       user.setblogs([blog])
+//         .success(function (user){
+//          console.log(user)
 //       })
 //     });
 // });

@@ -12,7 +12,7 @@
 	  <form method="link" action="/titles">
 			<input type="submit" value="FIND TITLES">
 	  </form>
-	  <form method="link" action="/authors">
+	  <form method="link" action="/users">
 			<input type="submit" value="FIND AUTHORS">
 	  </form>
 	</div>
@@ -20,8 +20,8 @@
 	<h1>New Blog...</h1>
 
   <form method="post" action="/new">
-  	<input type="text" name="author[firstname]" placeholder="JRR">
-  	<input type="text" name="author[lastname]" placeholder="Tolkien"><br><br>
+  	<input type="text" name="user[firstname]" placeholder="JRR">
+  	<input type="text" name="user[lastname]" placeholder="Tolkien"><br><br>
   	<input type="text" name="post[title]" placeholder="An Unexpected Party"><br>
   	<textarea name="post[body]" rows="5" cols="45" 
   						placeholder="In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort..."></textarea>

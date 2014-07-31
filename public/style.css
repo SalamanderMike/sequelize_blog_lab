@@ -29,7 +29,7 @@ div input {
 }
 
 p {
-	-webkit-animation: fadein 4s ease-in;
+	-webkit-animation: fadein 1s ease-in;
 	font-style: italic;
 }
 

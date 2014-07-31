@@ -5,7 +5,7 @@
 
 module.exports = {
   up: function(migration, DataTypes, done) {
-  	migration.createTable('authors', 
+  	migration.createTable('users', 
 	  	{id: {
 	  		type: DataTypes.INTEGER,
 	  		primaryKey: true,        // constraint
@@ -13,13 +13,21 @@ module.exports = {
 	  	},
 	  	firstname: DataTypes.STRING(10),
       lastname: DataTypes.STRING(10),
+      username: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
 	  	createdAt: DataTypes.DATE,
     	updatedAt: DataTypes.DATE
   	})
   	.complete(done)
   },
   down: function(migration, DataTypes, done) {
-  	migration.dropTable('authors').complete(done)
+  	migration.dropTable('users').complete(done)
   }
 }
 

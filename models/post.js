@@ -2,7 +2,7 @@ function Post(sequelize, DataTypes){
 	var post = sequelize.define('post', {
 		title: DataTypes.STRING(50),
 		body: DataTypes.TEXT,
-		authorId: { // only post needs foreignKey because it is 'many'
+		userId: { // only post needs foreignKey because it is 'many'
 			type: DataTypes.INTEGER,
 			foreignKey: true
 		}
@@ -10,7 +10,7 @@ function Post(sequelize, DataTypes){
 		{
 			classMethods: {
 				associate: function(db){
-					post.belongsTo(db.author); 
+					post.belongsTo(db.user);
 				}
 			}
 		});
